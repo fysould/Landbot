@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headsets</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Headsets</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="teclado.html">Teclados</a>
+      <a href="mouse.html">Mouses</a>
+      <a href="webcam.html">Webcams</a>
+      <a href="headset.html">Headsets</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Headsets Disponíveis</h2>
+      <p>Explore headsets com qualidade de som imersiva e conforto para longas horas.</p>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <img src="headset/1.png" alt="Headset Gamer RGB" />
+        <div class="card-content">
+          <h3>Headset Gamer RGB</h3>
+          <p>Headset com som surround e iluminação RGB personalizável.</p>
+          <button class="add-to-cart" data-name="Headset Gamer RGB" data-price="299.90">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+
+      <article class="card">
+        <img src="headset/2.png" alt="Headset Profissional" />
+        <div class="card-content">
+          <h3>Headset Profissional</h3>
+          <p>Qualidade de áudio premium para gravações e transmissões ao vivo.</p>
+          <button class="add-to-cart" data-name="Headset Profissional" data-price="499.90">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="headset/3.png" alt="Headset Confortável" />
+        <div class="card-content">
+          <h3>Headset Confortável</h3>
+          <p>Design ergonômico para conforto prolongado e excelente isolamento acústico.</p>
+          <button class="add-to-cart" data-name="Headset Confortável" data-price="259.90">Adicionar ao carrinho</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <button id="cartButton" title="Abrir carrinho">🛒</button>
+
+  <aside id="cartSidebar">
+    <h2>Carrinho</h2>
+    <ul id="cartItems"></ul>
+    <p id="totalPrice">Total: R$ 0,00</p>
+    <button class="action clear">Limpar carrinho</button>
+    <button class="action checkout">Finalizar compra</button>
+  </aside>
+
+<footer>
+  <p>&copy; 2025 Loja de Periféricos. Todos os direitos reservados.</p>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
