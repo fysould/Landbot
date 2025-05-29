@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rastreio de Pedido</title>
+    <link rel="stylesheet" href="inicio.css">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-light: #f0f0f0;
+            --accent: #28a745;
+            --accent-hover: #218838;
+            --input-bg: #2c2c2c;
+            --input-border: #444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: calc(100vh - 160px);
+        }
+
+        .rastreio {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .rastreio h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--input-border);
+            border-radius: 5px;
+            background-color: var(--input-bg);
+            color: var(--text-light);
+        }
+
+        input::placeholder {
+            color: #888;
+        }
+
+        button {
+            padding: 12px;
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        #resultado {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        footer {
+            background-color: #000;
+            color: #888;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+<script SameSite="None; Secure"  type="module" src="https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs"></script>
+<script type="module">
+  var myLandbot = new Landbot.Livechat({
+    configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2888122-LMWU6Z4SFS80EJFK/index.json',
+  });
+</script>
+<header>
+    <h1>Rastreio de Pedido</h1>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="teclado.html">Teclados</a>
+        <a href="mouse.html">Mouses</a>
+        <a href="monitores.html">Monitores</a>
+        <a href="headset.html">Headsets</a>
+        <a href="rastreio.html">Rastreio</a>
+    </nav>
+</header>
+
+<main>
+    <section class="rastreio">
+        <h2>Rastreie seu Pedido</h2>
+        <form id="rastreioForm">
+            <label for="codigo">Código de Rastreio:</label>
+            <input type="text" id="codigo" name="codigo" placeholder="Ex: RAS309TIV-1234" required>
+            <button type="submit">Rastrear</button>
+        </form>
+        <div id="resultado"></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Loja de Periféricos. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function gerarCodigoUnico() {
+        let codigo = localStorage.getItem('codigoRastreio');
+        if (!codigo) {
+            codigo = 'RAS309TIV-' + Math.floor(Math.random() * 10000);
+            localStorage.setItem('codigoRastreio', codigo);
+        }
+        return codigo;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const codigoUnico = gerarCodigoUnico();
+        document.getElementById('resultado').innerText = 'Seu código de rastreio: ' + codigoUnico;
+    });
+
+    document.getElementById('rastreioForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const codigo = document.getElementById('codigo').value;
+        document.getElementById('resultado').innerText = 'Seu pedido está a caminho! Código: ' + codigo;
+    });
+</script>
+
+</body>
+</html>
